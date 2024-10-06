@@ -2,10 +2,11 @@
 // src/Database.php
 
 class Database {
-    private $host = DB_HOST;
-    private $user = DB_USER;
-    private $pass = DB_PASS;
-    private $dbname = DB_NAME;
+    private $host = 'localhost';   // Hostname for XAMPP is usually localhost
+    private $user = 'root';        // Default username for XAMPP MySQL is 'root'
+    private $pass = '';            // Default password for root in XAMPP is empty
+    private $dbname = 'user_management'; // Your database name
+
     private $dbh;
     private $error;
     
@@ -17,13 +18,16 @@ class Database {
         );
         
         try {
+            // Create a new PDO instance with the connection settings
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
+            // Handle connection error by storing and echoing the error message
             $this->error = $e->getMessage();
             echo $this->error;
         }
     }
-    
+
+    // Prepare the SQL query using the database handler
     public function query($sql) {
         return $this->dbh->prepare($sql);
     }
