@@ -24,6 +24,12 @@
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
+
+            <div class="form-group">
+    <label for="2fa">2FA Code (for demo)</label>
+    <input type="text" class="form-control" id="2fa" name="2fa" required>
+</div>
+
         </form>
     </div>
 </body>
