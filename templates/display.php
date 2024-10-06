@@ -1,4 +1,3 @@
-
 <?php
 require '../config/config.php';
 require '../src/Database.php';
